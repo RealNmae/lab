@@ -84,18 +84,21 @@
       transition: transform .38s cubic-bezier(.34,1.4,.64,1), filter .28s ease;
     }
 
-    .phone-wrap.pw-left   { transform:rotate(-13deg) translate(-165px,18px); z-index:1; filter:brightness(.55) saturate(.75); }
-    .phone-wrap.pw-center { transform:rotate(-4deg)  translate(-42px,7px);   z-index:2; filter:brightness(.8); }
-    .phone-wrap.pw-right  { transform:rotate(6deg)   translate(92px,0);      z-index:3; filter:brightness(1); }
+    .phone-wrap.pw-left      { transform:rotate(-13deg) translate(-165px,18px); z-index:1; filter:brightness(.55) saturate(.75); }
+    .phone-wrap.pw-center    { transform:rotate(-4deg)  translate(-42px,7px);   z-index:2; filter:brightness(.8); }
+    .phone-wrap.pw-right     { transform:rotate(6deg)   translate(92px,0);      z-index:3; filter:brightness(.88); }
+    .phone-wrap.pw-far-right { transform:rotate(16deg)  translate(210px,-8px);  z-index:4; filter:brightness(1); }
 
     /* neon glow per app — hover OR .lift (triggered by App Store button hover) */
-    .phone-wrap.pw-left:hover,   .phone-wrap.pw-left.lift   { transform:rotate(-13deg) translate(-165px,4px);  filter:brightness(.93); z-index:10; }
-    .phone-wrap.pw-center:hover, .phone-wrap.pw-center.lift { transform:rotate(-4deg)  translate(-42px,-8px);  filter:brightness(.97); z-index:10; }
-    .phone-wrap.pw-right:hover,  .phone-wrap.pw-right.lift  { transform:rotate(6deg)   translate(92px,-8px);   filter:brightness(1);   z-index:10; }
+    .phone-wrap.pw-left:hover,      .phone-wrap.pw-left.lift      { transform:rotate(-13deg) translate(-165px,4px);   filter:brightness(.93); z-index:10; }
+    .phone-wrap.pw-center:hover,    .phone-wrap.pw-center.lift    { transform:rotate(-4deg)  translate(-42px,-8px);   filter:brightness(.97); z-index:10; }
+    .phone-wrap.pw-right:hover,     .phone-wrap.pw-right.lift     { transform:rotate(6deg)   translate(92px,-8px);    filter:brightness(1);   z-index:10; }
+    .phone-wrap.pw-far-right:hover, .phone-wrap.pw-far-right.lift { transform:rotate(16deg)  translate(210px,-22px);  filter:brightness(1);   z-index:10; }
 
-    .phone-wrap.pw-left:hover   .phone, .phone-wrap.pw-left.lift   .phone { box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 0 0 2px rgba(93,187,143,.45),  0 40px 80px rgba(0,0,0,.75), 0 0 60px rgba(93,187,143,.18); }
-    .phone-wrap.pw-center:hover .phone, .phone-wrap.pw-center.lift .phone { box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 0 0 2px rgba(156,45,255,.55),  0 40px 80px rgba(0,0,0,.75), 0 0 60px rgba(156,45,255,.22); }
-    .phone-wrap.pw-right:hover  .phone, .phone-wrap.pw-right.lift  .phone { box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 0 0 2px rgba(0,255,149,.45),   0 40px 80px rgba(0,0,0,.75), 0 0 60px rgba(0,255,149,.16); }
+    .phone-wrap.pw-left:hover      .phone, .phone-wrap.pw-left.lift      .phone { box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 0 0 2px rgba(93,187,143,.45),  0 40px 80px rgba(0,0,0,.75), 0 0 60px rgba(93,187,143,.18); }
+    .phone-wrap.pw-center:hover    .phone, .phone-wrap.pw-center.lift    .phone { box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 0 0 2px rgba(156,45,255,.55),  0 40px 80px rgba(0,0,0,.75), 0 0 60px rgba(156,45,255,.22); }
+    .phone-wrap.pw-right:hover     .phone, .phone-wrap.pw-right.lift     .phone { box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 0 0 2px rgba(0,255,149,.45),   0 40px 80px rgba(0,0,0,.75), 0 0 60px rgba(0,255,149,.16); }
+    .phone-wrap.pw-far-right:hover .phone, .phone-wrap.pw-far-right.lift .phone { box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 0 0 2px rgba(59,130,246,.55),  0 40px 80px rgba(0,0,0,.75), 0 0 60px rgba(59,130,246,.20); }
 
     /* Phone frame */
     .phone {
@@ -147,6 +150,26 @@
     }
     .as-btn:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.15); transform:translateY(-1px); }
     .as-btn svg   { opacity:.7; flex-shrink:0; }
+
+    /* App description label */
+    .app-desc-area {
+      text-align: center;
+      margin-bottom: 24px;
+      min-height: 52px;
+    }
+    .app-desc-name {
+      font-size: .88rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .app-desc-text {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 340px;
+      margin: 0 auto;
+      transition: opacity .2s;
+    }
 
     /* ═══════════════════════════════════════
        TELEGRAM SECTION
@@ -415,12 +438,14 @@
       .phone-app-name { font-size:12px; }
       .phone-app-tag  { font-size:9px; }
       .phone-wrap { margin-top:-173px; margin-left:-82px; }
-      .phone-wrap.pw-left   { transform:rotate(-13deg) translate(-132px,14px); }
-      .phone-wrap.pw-center { transform:rotate(-4deg)  translate(-32px,5px); }
-      .phone-wrap.pw-right  { transform:rotate(6deg)   translate(76px,0); }
-      .phone-wrap.pw-left:hover   { transform:rotate(-13deg) translate(-132px,2px); }
-      .phone-wrap.pw-center:hover { transform:rotate(-4deg)  translate(-32px,-6px); }
-      .phone-wrap.pw-right:hover  { transform:rotate(6deg)   translate(76px,-6px); }
+      .phone-wrap.pw-left      { transform:rotate(-13deg) translate(-132px,14px); }
+      .phone-wrap.pw-center    { transform:rotate(-4deg)  translate(-32px,5px); }
+      .phone-wrap.pw-right     { transform:rotate(6deg)   translate(76px,0); }
+      .phone-wrap.pw-far-right { transform:rotate(16deg)  translate(160px,-5px); }
+      .phone-wrap.pw-left:hover      { transform:rotate(-13deg) translate(-132px,2px); }
+      .phone-wrap.pw-center:hover    { transform:rotate(-4deg)  translate(-32px,-6px); }
+      .phone-wrap.pw-right:hover     { transform:rotate(6deg)   translate(76px,-6px); }
+      .phone-wrap.pw-far-right:hover { transform:rotate(16deg)  translate(160px,-18px); }
       /* Mobile Telegram: full-width list → chat navigation */
       .tg-window { height:480px; }
       .tg-sidebar { width:100%; height:100%; border-right:none; }
@@ -478,7 +503,7 @@
       </div>
     </div>
 
-    <!-- SerpentFeel — front right -->
+    <!-- SerpentFeel — right -->
     <div class="phone-wrap pw-right" data-phone="serpentfeel" onclick="handlePhoneClick('serpentfeel','serpentfeel.html')">
       <div class="phone">
         <div class="phone-island"></div>
@@ -487,7 +512,24 @@
       </div>
     </div>
 
+    <!-- Incave — front far right -->
+    <div class="phone-wrap pw-far-right" data-phone="incave" onclick="handlePhoneClick('incave','incave_landing.html')">
+      <div class="phone">
+        <div class="phone-island"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,#060d1a 0%,#0c1929 100%);display:flex;align-items:center;justify-content:center;">
+          <img src="assets/incaveIcon.jpg" alt="Incave icon" style="width:90px;height:90px;border-radius:22px;box-shadow:0 0 32px rgba(59,130,246,.4);"/>
+        </div>
+        <div class="phone-home"></div>
+      </div>
+    </div>
+
   </div><!-- /phones-scene -->
+
+  <!-- Current app description -->
+  <div class="app-desc-area">
+    <div class="app-desc-name" id="app-desc-name">Incave</div>
+    <div class="app-desc-text" id="app-desc-text">Drop AR audio zones into the real world. Walk in and music swells — step out and silence returns.</div>
+  </div>
 
   <!-- App Store buttons -->
   <div class="as-row">
@@ -502,6 +544,10 @@
     <a class="as-btn" data-app="serpentfeel" href="https://apps.apple.com/us/app/serpentfeel/id6760789879" target="_blank" rel="noopener">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.78 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
       SerpentFeel
+    </a>
+    <a class="as-btn" data-app="incave" href="https://apps.apple.com/mu/app/incave-spatial-audio/id6762729811" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.78 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+      Incave
     </a>
   </div>
 </section>
@@ -717,8 +763,24 @@
 
   renderMsgs('brevitas');
 
+  const APP_INFO = {
+    itero:       { name: 'Itero',        desc: 'Private, local-first journey tracker. Your routes and milestones stay on-device — zero cloud.' },
+    gyrosumo:    { name: 'GyroSumo',     desc: 'A shared experiment in physical presence. Tilt your device against a friend — sensors replace words.' },
+    serpentfeel: { name: 'SerpentFeel',  desc: 'Hold it. Tilt it. Listen. Your body becomes the instrument in this motion-driven experience.' },
+    incave:      { name: 'Incave',       desc: 'Drop AR audio zones into the real world. Walk in and music swells — step out and silence returns.' }
+  };
+
+  function setAppDesc(id) {
+    const info = APP_INFO[id];
+    if (!info) return;
+    document.getElementById('app-desc-name').textContent = info.name;
+    document.getElementById('app-desc-text').textContent = info.desc;
+  }
+
+  setAppDesc('incave');
+
   // Mobile: tap to select (lift), tap selected again to navigate
-  let activeMobilePhone = 'serpentfeel';
+  let activeMobilePhone = 'incave';
 
   function handlePhoneClick(id, href) {
     if (window.innerWidth > 640) {
@@ -731,14 +793,21 @@
       document.querySelectorAll('.phone-wrap[data-phone]').forEach(el => el.classList.remove('lift'));
       document.querySelector(`.phone-wrap[data-phone="${id}"]`).classList.add('lift');
       activeMobilePhone = id;
+      setAppDesc(id);
     }
   }
+
+  // Phone wrap hover (desktop): show that app's description
+  document.querySelectorAll('.phone-wrap[data-phone]').forEach(wrap => {
+    wrap.addEventListener('mouseenter', () => setAppDesc(wrap.dataset.phone));
+    wrap.addEventListener('mouseleave', () => setAppDesc('incave'));
+  });
 
   // App Store buttons lift their corresponding phone on hover (desktop only)
   document.querySelectorAll('.as-btn[data-app]').forEach(btn => {
     const phone = () => document.querySelector(`.phone-wrap[data-phone="${btn.dataset.app}"]`);
-    btn.addEventListener('mouseenter', () => phone()?.classList.add('lift'));
-    btn.addEventListener('mouseleave', () => phone()?.classList.remove('lift'));
+    btn.addEventListener('mouseenter', () => { phone()?.classList.add('lift'); setAppDesc(btn.dataset.app); });
+    btn.addEventListener('mouseleave', () => { phone()?.classList.remove('lift'); setAppDesc('incave'); });
   });
 
   // Telegram input send
